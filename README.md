@@ -25,8 +25,19 @@ Token can be set on query `?access_token=token` or using header `Authorization: 
 ## Graphql endpoint
 `http://localhost:9999/graphql`
 
+###### schema queries
+![alt text](https://raw.githubusercontent.com/ikromy/wtest_graphql/master/schema_query.png)
+
+###### schema mutations
+![alt text](https://raw.githubusercontent.com/ikromy/wtest_graphql/master/schema_mutation.png)
+
 ## Balance calculated
 1. create/update account to deposit
 2. createTransfer or deleteTransfer also changes balance
+3. balance calculate inside mysql trigger
 
-calculated balance using mysql trigger
+## Run
+```
+yarn install
+nodemon src/index.js
+```
