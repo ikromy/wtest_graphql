@@ -37,6 +37,8 @@ Token can be set on query `?access_token=token` or using header `Authorization: 
 3. balance calculate inside mysql trigger
 
 ## Run
+1. import file sql ( wallex.sql )
+2. go to project folder, and type :
 ```
 yarn install
 nodemon src/index.js
