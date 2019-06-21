@@ -1,0 +1,118 @@
+{
+  "data": {
+    "createUser": {
+      "id": "1",
+      "email": "a@a.com",
+      "name": "Ikromy Wallex",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJhQGEuY29tIiwibmFtZSI6Iklrcm9teSBXYWxsZXgiLCJjcmVhdGVkQXQiOiIyMDE5LTA2LTIxVDEwOjAxOjEzLjAwMFoiLCJ1cGRhdGVkQXQiOm51bGwsImlhdCI6MTU2MTExMTI3M30.nXESuXARngdFiApb068347F16GOy82fsfRJ23CJTfG8"
+    }
+  }
+}
+
+http://localhost:9999/graphql?access_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJhQGEuY29tIiwibmFtZSI6Iklrcm9teSBXYWxsZXgiLCJjcmVhdGVkQXQiOiIyMDE5LTA2LTIxVDEwOjAxOjEzLjAwMFoiLCJ1cGRhdGVkQXQiOm51bGwsImlhdCI6MTU2MTExMTI3M30.nXESuXARngdFiApb068347F16GOy82fsfRJ23CJTfG8
+
+mutation createUser($email:String!,$name:String!) {
+  createUser(email:$email,name:$name) {
+    id,
+    email, name, token
+  }
+}
+
+query getTransfers {
+  getTransfers {
+    id,
+    transfer_from {
+      account_number,
+      account_name {
+        name
+      }
+    },
+    transfer_to {
+      account_number,
+      account_name {
+        name
+      }
+    },
+    amount
+  }
+}
+
+query getTransferById($id:ID!) {
+  getTransferById(id:$id) {
+    id,
+    transfer_from {
+      account_number,
+      account_name {
+        name
+      }
+    },
+    transfer_to {
+      account_number,
+      account_name {
+        name
+      }
+    },
+    amount
+  }
+}
+
+mutation createTransfer($transfer_from_account:String!,$transfer_to_account:String!,$amount:Int!, $notes:String!) {
+  createTransfer(transfer_from_account:$transfer_from_account,transfer_to_account:$transfer_to_account,amount:$amount,notes:$notes) {
+    id,
+    transfer_from {
+      account_number,
+      account_name {
+        name
+      }
+    },
+    transfer_to {
+      account_number,
+      account_name {
+        name
+      }
+    },
+    amount,
+    notes
+  }
+}
+
+mutation updateTransfer($id:ID!,$notes:String!) {
+  updateTransfer(id:$id,notes:$notes) {
+    id,
+    transfer_from {
+      account_number,
+      account_name {
+        name
+      }
+    },
+    transfer_to {
+      account_number,
+      account_name {
+        name
+      }
+    },
+    amount,
+    notes
+  }
+}
+
+
+mutation deleteTransfer($id:ID!) {
+  deleteTransfer(id:$id) {
+    id,
+    transfer_from {
+      account_number,
+      account_name {
+        name
+      }
+    },
+    transfer_to {
+      account_number,
+      account_name {
+        name
+      }
+    },
+    amount,
+    notes
+  }
+}

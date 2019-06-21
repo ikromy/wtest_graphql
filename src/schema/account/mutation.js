@@ -48,7 +48,7 @@ module.exports = {
         throw new Error("Invalid bank code")
       }
       const [ id ] = await AccountModel.post({id_user:token.id, id_bank:dataBank[0].id, account_number,amount})
-      return newAccount = await AccountModel.get(id)
+      return await AccountModel.get(id)
     }
   },
   updateAccount: {

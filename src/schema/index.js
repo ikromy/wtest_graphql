@@ -10,6 +10,7 @@ const { getAccounts, getAccountById } = require('./account/query')
 const { createAccount, updateAccount, deleteAccount } = require('./account/mutation')
 
 const { getTransfers, getTransferById } = require('./transfer/query')
+const { createTransfer, updateTransfer, deleteTransfer } = require('./transfer/mutation')
 
 const RootQueryType = new GraphQLObjectType({
   name: 'Queries',
@@ -24,6 +25,7 @@ const RootQueryType = new GraphQLObjectType({
 const RootMutationType = new GraphQLObjectType({
   name: 'Mutations',
   fields: () => ({
+    createTransfer, updateTransfer, deleteTransfer,
     createUser, updateUser, deleteUser,
     createBank, updateBank, deleteBank,
     createAccount, updateAccount, deleteAccount
