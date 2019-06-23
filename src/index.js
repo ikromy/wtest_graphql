@@ -11,14 +11,6 @@ app.use(bodyParser.json())
 app.use(cors())
 app.use(helmet())
 
-//app.use('/graphql', (req, res) => {
-  //graphqlHTTP({
-    //schema: wlSchema,
-    //graphiql: true,
-    //context: { pgPool, req }
-  //})(req, res)
-//})
-
 app.use('/graphql', graphqlHttp({
   schema: wlSchema,
   graphiql: true
